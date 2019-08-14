@@ -1,0 +1,98 @@
+
+
+<div class="py-5">
+    <div class="container">
+      <div class="row hidden-md-up">
+        <div class="col-md-4 mt-5" *ngFor='let city of cities;trackBy: index;'>
+          <div class="card" (click)="onFirstClick(city)" id="{{'Id'+city.id}}">
+            <div class="card-block pt-5 pb-5">
+              <div *ngIf="!city.isEmpty">
+              <div class="form-group">
+                <!-- <label for="city">City Name:</label> -->
+                <input class="form-control" type="text" placeholder="Enter city name" id="city" [(ngModel)]="city.name"
+                    name="cityname" >
+                    <!-- (input)="onSearchLocationWithEvent($event)" -->
+            </div>
+            <button class="btn btn-primary"  (click)="onClickSearch(city)"
+                type="button">Check Weather</button>
+
+            <div class="weather_container mt-2" *ngIf="city.weatherForecastData">
+                <h5>{{city.weatherForecastData.city.name}}    {{city.weatherForecastData.city.country}}</h5>
+                <span ng-if="city.weatherForecastData.current_time">{{city.weatherForecastData.current_time}} IST</span><br/>
+                <span>Temp: {{city.weatherForecastData.list[0].main.temp}} &#8451;</span><br/>
+                <span>Pressure: {{city.weatherForecastData.list[0].main.pressure}}</span><br/>
+                <span>Humidity: {{city.weatherForecastData.list[0].main.humidity}} %</span><br/>
+
+            </div>
+            <div class="weather_container mt-2" *ngIf="city.errorMessage">
+                <h5>{{city.errorMessage}}</h5>
+
+            </div>
+            
+
+            
+            </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+              <a href="#" class="card-link">link</a>
+              <a href="#" class="card-link">Second link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+              <a href="#" class="card-link">link</a>
+              <a href="#" class="card-link">Second link</a>
+            </div>
+          </div>
+        </div> -->
+      </div><br>
+      <!-- <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+              <a href="#" class="card-link">link</a>
+              <a href="#" class="card-link">Second link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+              <a href="#" class="card-link">link</a>
+              <a href="#" class="card-link">Second link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+              <a href="#" class="card-link">link</a>
+              <a href="#" class="card-link">Second link</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
