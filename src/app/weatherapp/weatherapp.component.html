@@ -3,7 +3,7 @@
 <div class="py-5">
     <div class="container">
       <div class="row hidden-md-up">
-        <div class="col-md-4 mt-5" *ngFor='let city of cities;trackBy: index;'>
+        <div class="col-md-4 mt-5" *ngFor='let city of cities'>
           <div class="card" (click)="onFirstClick(city)" id="{{'Id'+city.id}}">
             <div class="card-block pt-5 pb-5">
               <div *ngIf="!city.isEmpty">
